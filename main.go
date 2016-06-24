@@ -338,7 +338,9 @@ func findHandler(w http.ResponseWriter, req *http.Request) {
 
 		for _, metric := range metrics {
 			mm := map[string]interface{}{
+				"path": *metric.Path,
 				"metric_path": *metric.Path,
+				"is_leaf":      *metric.IsLeaf,
 				"isLeaf":      *metric.IsLeaf,
 			}
 			result = append(result, mm)
